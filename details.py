@@ -20,7 +20,7 @@ for idx, row in concat_df.iterrows():
     # Postcode Section
     # Finds valid full UK postcode in string
 
-    postcode_ext = re.search(r'(GIR(?=\s*0AA)|(?:[BEGLMNSW]|[A-Z]{2})[0-9](?:[0-9]|(?:(?<=N1|E1|W1)|(?<=SE1|SW1|NW1|EC[0-9]|WC[0-9])[A-HJ-NP-Z])?))\s*([0-9][ABD-HJLNP-UW-Z]{2})', str(details), flags=re.I)
+    postcode_ext = re.search(r'(GIR(?=\s*0AA)|(?:[BEGLMNSW]|[A-PR-UWYZ][A-HK-Y])[0-9](?:[0-9]|(?:(?<=N1|E1|W1)|(?<=SE1|SW1|NW1|EC[0-9]|WC[0-9])[A-HJ-NP-Z])?))\s*([0-9][ABD-HJLNP-UW-Z]{2})', str(details), flags=re.I)
     if postcode_ext:
         details.replace(postcode_ext.group(0), "")
         postcode_ext = postcode_ext.group(0).upper()
